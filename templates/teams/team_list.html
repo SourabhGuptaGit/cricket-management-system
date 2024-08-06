@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Teams</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Logo</th>
+            <th>Team Name</th>
+            <th>Club State</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for team in teams %}
+        <tr>
+            <td><img src="{{ team.logo_uri }}" alt="{{ team.name }} Logo" class="team-logo"></td>
+            <td><a href="{% url 'team_detail' team.identifier %}">{{ team.name }}</a></td>
+            <td>{{ team.club_state }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
